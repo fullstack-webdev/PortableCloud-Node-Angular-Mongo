@@ -1,0 +1,600 @@
+/* Google Material Design icons */
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./assets/font/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url(./assets/font/MaterialIcons-Regular.woff2) format('woff2'), url(./assets/font/MaterialIcons-Regular.woff) format('woff'), url(./assets/font/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+body {
+    padding-top: 46px;
+    font-size: 14px;
+}
+
+*,
+*:focus {
+    outline: 0 !important;
+}
+
+img.pcloud-logo {
+    height: 32px;
+    margin-top: 6px;
+    float: left;
+    margin-right: 10px;
+}
+
+.navbar {
+    min-height: 32px;
+}
+
+.navbar .navbar-toggle {
+    padding: 5px 10px;
+}
+
+.navbar .navbar-brand {
+    font-size: inherit;
+    height: 48px;
+    line-height: 100%;
+}
+
+.navbar .navbar-form {
+    border-bottom: none;
+    border-top: none;
+    box-shadow: none;
+    padding: 0 10px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+.breadcrumb {
+    border-radius: 0;
+}
+
+.breadcrumb .btn {
+    margin-top: -5px;
+}
+
+.btn.btn-default {
+    color: #444;
+    background-color: #FAFAFA;
+}
+
+.btn {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26);
+    font-weight: 500;
+    letter-spacing: .01em;
+    border: none;
+}
+
+textarea.code {
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 13px;
+    min-height: 250px;
+    resize: vertical;
+    color: #000;
+}
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.navbar-fixed-top {
+    border: 0;
+}
+
+.sidebar {
+    display: none;
+}
+
+.btn-go-back {
+    margin-top: -5px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.nav-sidebar {
+    margin-right: -21px;
+    margin-bottom: 20px;
+    margin-left: -20px;
+}
+
+.nav-sidebar > li > a {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+    color: #fff;
+    background-color: #2196F3;
+}
+
+.main {
+    padding: 0;
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+
+.file-tree ul.nav.nav-sidebar {
+    margin: 0;
+    padding: 0;
+    padding-left: 12px;
+}
+
+.file-tree ul.nav.nav-sidebar > li {
+    border-left: 1px solid #ddd;
+    padding-left: 4px;
+}
+
+.file-tree ul.nav.nav-sidebar > li > a {
+    padding: 2px 2px 2px 4px;
+}
+
+.file-tree ul.nav.nav-sidebar:first-child {
+    padding-left: 0;
+}
+
+.file-tree ul.nav.nav-sidebar.file-tree-root > li {
+    border-left: none;
+    padding-left: 0px;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+#context-menu {
+    position: absolute;
+    display: none;
+    z-index: 9999;
+}
+
+.iconset {
+    padding: 10px;
+}
+
+.col-120 {
+    width: 100px;
+    max-height: 100px;
+    float: left;
+    margin-bottom: 9px;
+    margin-right: 9px;
+}
+
+.col-120:last-child {
+    margin-right: 0;
+}
+
+.iconset .thumbnail {
+    border-radius: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    padding: 10px 0;
+    border: none;
+}
+
+.iconset .thumbnail .item-icon {
+    font-size: 32px;
+}
+
+.detail-sources {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset -1px -1px 0 rgba(0, 0, 0, .07);
+}
+
+::-webkit-scrollbar:hover {
+    background-color: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+    min-height: 0.8em;
+    min-width: 0.8em;
+    background-color: rgba(0, 0, 0, .2);
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset -1px -1px 0 rgba(0, 0, 0, .07);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #bbb;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #888;
+}
+
+.dropdown-menu.dropdown-right-click {
+    display: block;
+    position: static;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.dropdown-menu.dropdown-right-click > li > a {
+    padding: 5px 12px;
+}
+
+.dropdown-menu.dropdown-right-click > li > a > i {
+    font-size: .9em;
+    margin-right: 1px;
+}
+
+.dropdown-menu.dropdown-right-click .divider {
+    margin: 3px 0;
+}
+
+.spinner-wrapper {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 8%;
+}
+
+table th > a:hover,
+table th > a:active,
+table th > a:focus {
+    text-decoration: none;
+}
+
+.sortorder:after {
+    color: #2196f3;
+    content: '\25bc';
+}
+
+.sortorder.reverse:after {
+    color: #2196f3;
+    content: '\25b2';
+}
+
+[ng\:cloak], [ng-cloak],
+[data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.mr2 {
+    margin-right: 2px;
+}
+
+.mr5 {
+    margin-right: 5px;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.mb0 {
+    margin-bottom: 0;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.block {
+    display: block;
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 50px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 5px 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-form .btn {
+        margin-top: 5px;
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        top: 43px;
+    }
+
+    .nav.navbar-right {
+        margin-right: 0px;
+    }
+
+    .nav.navbar-nav > li > a {
+        padding-top: 0;
+        padding-bottom: 0;
+        line-height: 34px;
+    }
+}
+
+.nav.navbar-nav > li > a {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: #0c7cd5 !important;
+}
+
+@media (max-width: 475px) {
+    .table.table-files .btn {
+        display: none;
+    }
+}
+
+.folder-status-info button.btn {
+    color: #ffffff;
+    background-color: #9c27b0;
+    border-color: transparent;
+}
+
+.folder-status-success button.btn {
+    color: #ffffff;
+    background-color: #4caf50;
+    border-color: transparent;
+}
+
+.folder-status-warning button.btn {
+    color: #ffffff;
+    background-color: #ff9800;
+    border-color: transparent;
+}
+
+.folder-status-danger button.btn {
+    color: #ffffff;
+    background-color: #e51c23;
+    border-color: transparent;
+}
+
+.folder-status-primary button.btn {
+    color: #ffffff;
+    background-color: #2196f3;
+    border-color: transparent;
+}
+
+.progress {
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+.bs-callout-danger, .bs-callout-danger h4 {
+    color: #ce4844 !important;
+    border-left-color: #ce4844 !important;
+}
+
+.bs-callout {
+    padding: 0px 20px;
+    margin: 10px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.btn-sidebar {
+    background-color: #F5F5F5 !important;
+    color: #666;
+    text-align: left;
+    padding: 6px 8px;
+    text-transform: initial;
+    width: 100%;
+    box-shadow: none !important;
+}
+
+.btn-sidebar:hover {
+    background-color: #d4d4d4 !important;
+}
+
+.btn-sidebar:active {
+    color: #2196F3 !important;
+}
+
+.btn-sidebar.selected {
+    color: #2196F3 !important;
+    /*background-color: #C5E4FC !important;*/
+    background-color: #FFF !important;
+}
+
+.navbar-brand {
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+.menu-toolbar {
+    float: right;
+    padding-top: 6px;
+    padding-right: 5px;
+}
+
+.file-tree ul.nav.nav-sidebar {
+    overflow: hidden;
+    max-height: 400px;
+    -webkit-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    -moz-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    -o-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000); /* ease (default) */
+}
+
+ul.nav.nav-sidebar.sidebar-collapsed {
+    max-height: 0px !important;
+}
+
+.pcloud-icon {
+    float: left;
+    height: 45px;
+}
+
+h3.device-text {
+    line-height: 45px;
+    margin-left: 69px;
+}
+
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+.align-right {
+    text-align: right;
+}
+
+.panel-body {
+    padding: 5px;
+}
+
+.margin-left {
+    margin-left: 20px;
+}
+
+.margin-top {
+    margin-top: 20px;
+}
+
+.img-logo-sm {
+    height: 16px;
+    margin-right: 8px;
+}
+
+.smaller .material-icons, .smaller.material-icons {
+    font-size: 16px;
+    width: auto;
+    height: auto;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+p, .selectable {
+    -webkit-touch-callout: text;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+
+input, textarea, select {
+    -webkit-touch-callout: auto;
+    -webkit-user-select: auto;
+    -khtml-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+}
+
+.pc-collapsible {
+    max-height: 500px;
+    overflow: hidden;
+    -webkit-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    -moz-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    -o-transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+    transition: all 500ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
+}
+
+.pc-collapsed {
+    max-height: 0px !important;
+}
+
+.deviceIcon {
+    height: 23px;
+}
+
+.folder-icon {
+    height: 20px;
+}
+
+.folder-icon.pull-left {
+    margin-right: 6px;
+    height: 22px;
+}
+
+.cloudfolder-med {
+    width: 42px;
+    margin-right: 10px;
+}
+.md-icon-small .material-icons, .md-icon-small.material-icons {
+    font-size: 17px;
+}
+.md-icon-large .material-icons, .md-icon-large.material-icons {
+    font-size: 42px;
+}
+.img-icon {
+    height: 17px;
+}

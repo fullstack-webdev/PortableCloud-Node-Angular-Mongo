@@ -1,0 +1,7 @@
+{
+    "_id": "_design/filters",
+    "language": "javascript",
+    "filters": {
+        "userdocs": "function (doc, req) {\n    if (doc.doctype && req.query && req.query.users) {\n        var users = req.query.users.split(',');\n        for (var i = 0, l = users.length; i < l; i++) {\n            if ((doc.doctype == 'device') && (doc.authorizedUsers.indexOf(users[i]) !== -1)) {\n                return true;\n            } else if ((doc.doctype == 'folder') && doc.users[users[i]]) {\n                return true;\n            }\n        }\n        return false;\n    }\n}"
+    }
+}

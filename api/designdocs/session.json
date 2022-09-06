@@ -1,0 +1,12 @@
+{
+    "_id": "_design/session",
+    "language": "javascript",
+    "views": {
+        "by_session": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'session') {\n\t\temit(d._id, d);\n\t}\n\t\n}"
+        },
+        "by_expiry": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'session') {\n\t\temit(d.expiry, d);\n\t}\n\t\n}"
+        }
+    }
+}

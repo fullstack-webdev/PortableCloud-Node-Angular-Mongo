@@ -1,0 +1,12 @@
+{
+    "_id": "_design/application",
+    "language": "javascript",
+    "views": {
+        "by_id": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'application') {\n\t\temit(d._id, d);\n\t}\n\t\n}"
+        },
+        "by_app_id": {
+          "map": "function(d) {\n\n\tif(d.doctype === 'application') {\n\t\temit(d.app_id, d);\n\t}\n\t\n}"
+        }
+    }
+}

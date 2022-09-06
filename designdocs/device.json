@@ -1,0 +1,10 @@
+{
+    "_id": "_design/device",
+    "_rev": "2-eaa43dd9d5310ad3cf5c9b6c8bef0f1f",
+    "language": "javascript",
+    "views": {
+    "by_name": {
+        "map": "function(d) {\n\n\tif(d.doctype === 'device') {\n\t\temit(d.name, d);\n\t}\n\t\n}"
+    }
+}
+}

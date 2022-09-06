@@ -1,0 +1,80 @@
+<table class="table mb0 table-files" ng-cloak>
+    <thead>
+    <tr>
+        <th>
+            <a href="" ng-click="order('model.name')">
+                {{"name" | translate}}
+                <span class="sortorder" ng-show="predicate[1] === 'model.name'" ng-class="{reverse:reverse}"></span>
+            </a>
+        </th>
+        <th class="hidden-sm hidden-xs" ng-show="admin && config.allowedActions.sync && onTopLevel()">
+            <a href="" ng-click="order('model.syncDevices')">
+                {{"syncDevices" | translate}}
+                <span class="sortorder" ng-show="predicate[1] === 'model.permissions'"
+                      ng-class="{reverse:reverse}"></span>
+            </a>
+        </th>
+        <th class="hidden-xs">
+            <a href="" ng-click="order('model.size')">
+                {{"size" | translate}}
+                <span class="sortorder" ng-show="predicate[1] === 'model.size'" ng-class="{reverse:reverse}"></span>
+            </a>
+        </th>
+        <th class="hidden-sm hidden-xs" ng-show="!onTopLevel()">
+            <a href="" ng-click="order('model.date')">
+                {{"date" | translate}}
+                <span class="sortorder" ng-show="predicate[1] === 'model.date'" ng-class="{reverse:reverse}"></span>
+            </a>
+        </th>
+        <th class="text-right"></th>
+    </tr>
+    </thead>
+    <tbody class="file-item">
+    <tr ng-show="FileNavigator.requesting">
+        <td colspan="5">
+            <div ng-include="config.tplPath + '/spinner.html'"></div>
+        </td>
+    </tr>
+    <tr ng-show="!FileNavigator.requesting && FileNavigator.fileList.length < 1 && !FileNavigator.error">
+        <td colspan="5">
+            {{"no_files_in_folder" | translate}}...
+        </td>
+    </tr>
+    <tr ng-show="!FileNavigator.requesting && FileNavigator.error">
+        <td colspan="5">
+            {{ FileNavigator.error }}
+        </td>
+    </tr>
+    <tr ng-repeat="item in FileNavigator.fileList | filter: {model:{name: query}} | orderBy:predicate:reverse"
+        ng-show="!FileNavigator.requesting">
+        <td ng-right-click="touch(item)">
+            <a href="" ng-click="smartClick(item)" title="{{item.model.name}} ({{item.model.sizeKb()}}kb)">
+                <md-icon ng-show="item.model.type === 'dir'" class="md-icon-small"><i class="material-icons">
+                    &#xE2C7;</i></md-icon>
+                <md-icon ng-show="item.model.type === 'file'" class="md-icon-small"><i class="material-icons">
+                    &#xE24D;</i></md-icon>
+                <img ng-show="item.model.type === 'syncgroup'" class="pull-left folder-icon"
+                     ng-src="{{config.path.images}}cloudFolder_small.png">
+                {{item.model.name | strLimit : 64}}
+            </a>
+        </td>
+        <td class="hidden-sm hidden-xs" ng-show="admin && config.allowedActions.sync && onTopLevel()" ng-cloak>
+            {{ folder = getFolderByItem(item); '' }}
+            {{folder ? sharesFolder(folder) : ''}}
+        </td>
+        <td class="hidden-xs">
+            <span ng-switch="folder == undefined">
+                <span ng-switch-when="false">{{model[folder.id].localFiles | alwaysNumber}} <span translate>items</span>, ~{{model[folder.id].localBytes
+                | binary}}</span>
+                <span ng-switch-when="true">{{(item.model.type == 'dir') ? ' - ' : (item.model.size | bytes )}}</span>
+            </span>
+        </td>
+        <td class="hidden-sm hidden-xs" ng-show="!onTopLevel()">
+            {{item.model.date ? (item.model.date | formatDate) : ''}}
+        </td>
+        <td class="text-right">
+            <div ng-include="config.tplPath + '/item-toolbar.html'"></div>
+        </td>
+    </tr>
+    </tbody>
+</table>

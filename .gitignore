@@ -1,0 +1,16 @@
+/.idea
+/api/node_modules
+/api/keys
+/frontend/node_modules
+/frontend/bower_components
+/npm-debug.log
+/node_modules
+/bower_components
+/frontend/build/*
+!/frontend/build/
+!/frontend/build/assets
+!/frontend/build/bower_components
+!/frontend/build/index.html
+/tmp
+.DS_Store
+*.DS_Store

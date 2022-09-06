@@ -1,0 +1,19 @@
+<ol class="breadcrumb mb0 ng-cloak">
+    <li>
+        <a href="" ng-click="FileNavigator.folderClick()">
+            <md-icon class="md-icon-small mr2"><i class="material-icons">&#xE88A;</i></md-icon>
+        </a>
+    </li>
+    <li ng-repeat="(key, dir) in FileNavigator.currentPath track by key" ng-class="{'active':$last}"
+        class="animated fast fadeIn">
+        <span ng-cloak ng-switch="$last">
+            <a href="" ng-switch-default ng-click="FileNavigator.goTo(key)">
+                <img ng-show="$first" class="folder-icon" ng-src="{{config.path.images}}cloudFolder_small.png"><md-icon ng-show="!$first" class="md-icon-small mr2"><i class="material-icons">&#xE2C8;</i></md-icon> {{ $index ? dir : FileNavigator.getFolderNameById(dir) }}
+            </a>
+            <span ng-switch-when="true" ng-cloak><img ng-show="$first" class="folder-icon" ng-src="{{config.path.images}}cloudFolder_small_disabled.png"><md-icon ng-show="!$first" class="md-icon-small mr2"><i class="material-icons">&#xE2C8;</i></md-icon>  {{ $index ? dir : FileNavigator.getFolderNameById(dir) }}</span>
+        </span>
+    </li>
+    <li>
+        <button class="btn btn-primary btn-xs" ng-click="FileNavigator.upDir()">&crarr;</button>
+    </li>
+</ol>

@@ -1,0 +1,123 @@
+.modal-open {
+    /* overflow: hidden; */
+    overflow: auto !important;
+}
+
+.modal-open[style] {
+    padding-right: 0px !important;
+}
+
+.dropdown-menu > li > a {
+    padding: 3px 20px 3px 8px;
+}
+
+.help-block {
+    color: #5E5D5D;
+}
+
+.navbar-toggle {
+    padding: 0 !important;
+}
+
+@media (max-width: 767px) {
+    .navbar-inverse .navbar-nav .dropdown-menu .divider {
+        background-color: rgba(255, 255, 255, 0.38) !important;
+    }
+
+    .navbar-nav .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        display: block;
+    }
+
+    .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+        background-color: #2196F3 !important;
+        color: #ffffff;
+    }
+
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+        color: #ffffff;
+        background-color: #2196F3 !important;
+    }
+
+    .navbar-inverse .navbar-nav .dropdown-menu > li > a {
+        color: #b2dbfb;
+    }
+
+    .navbar-nav .dropdown-menu > li > a {
+        line-height: 23px;
+    }
+
+    .navbar-nav .dropdown-menu > li > a, .navbar-nav .dropdown-menu .dropdown-header {
+        padding: 5px 15px 5px 25px;
+    }
+
+    .navbar-inverse .navbar-nav .dropdown-menu > li > a:hover, .navbar-inverse .navbar-nav .dropdown-menu > li > a:focus {
+        color: #ffffff;
+        background-color: transparent;
+    }
+
+    span.caret {
+        display: none;
+    }
+
+    .navbar .navbar-form {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 475px) {
+    .table.table-files .btn {
+        display: initial;
+    }
+}
+
+md-icon.md-default-theme, md-icon {
+    color: inherit;
+}
+
+.text-muted {
+    color: #bbbbbb;
+}
+
+.text-primary {
+    color: #2196f3;
+}
+
+a.text-primary:hover,
+a.text-primary:focus {
+    color: #0c7cd5;
+}
+
+.text-success {
+    color: #4caf50;
+}
+
+a.text-success:hover,
+a.text-success:focus {
+    color: #3d8b40;
+}
+
+.modal-header {
+    padding: 20px;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    padding: 20px;
+}
+.nav-sidebar>.active>a, .nav-sidebar>.active>a:focus, .nav-sidebar>.active>a:hover {
+    color: #fff;
+    background-color: #315B7D;
+}

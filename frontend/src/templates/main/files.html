@@ -1,0 +1,23 @@
+<div class="menu-toolbar" ng-cloak>
+    <button class="btn btn-default btn-sm" ng-show="admin" data-toggle="modal" data-target="#newfolder"
+            ng-click="touch()">
+        <img ng-show="onTopLevel()" class="img-icon" src="assets/img/cloudFolder_icon.png" src="assets/img/cloudFolder_icon.png">
+        <md-icon ng-show="!onTopLevel()" class="md-icon-small"><i class="material-icons">&#xE2CC;</i></md-icon>
+        {{ onTopLevel() ? "Create Sync Group": "Create Folder" }}
+    </button>
+    <button class="btn btn-default btn-sm" ng-show="admin && !onTopLevel()" data-toggle="modal" data-target="#uploadfile"
+            ng-click="touch()">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE2C6;</i></md-icon> {{"upload_file" | translate}}
+    </button>
+
+    <button class="btn btn-default btn-sm" ng-click="setTemplate('main-icons.html')"
+            ng-show="viewTemplate !== 'main-icons.html'" title="{{'icons' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE5C3;</i></md-icon>
+    </button>
+    <button class="btn btn-default btn-sm" ng-click="setTemplate('main-table.html')"
+            ng-show="viewTemplate !== 'main-table.html'" title="{{'list' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE896;</i></md-icon>
+    </button>
+</div>
+<div ng-include="config.tplPath + '/current-folder-breadcrumb.html'" ng-show="config.breadcrumb"></div>
+<div ng-include="config.tplPath + '/' + viewTemplate" class="main-navigation clearfix"></div>

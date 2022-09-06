@@ -1,0 +1,13 @@
+{
+    "_id": "_design/folder",
+    "language": "javascript",
+    "views": {
+        "by_name": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'folder') {\n\t\temit(d.name, d);\n\t}\n\t\n}"
+        },
+        "by_user": {
+            "map": "function(d){\nif (d.users) {\n\tfor (var i in d.users) {\n\t\temit(i, d);\n\t}\n}}"
+        }
+    }
+}
+

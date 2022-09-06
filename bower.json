@@ -1,0 +1,28 @@
+{
+  "name": "portablecloud_sync_server",
+  "version": "1.0",
+  "authors": [
+    "Noah Freedman"
+  ],
+  "description": "File and synchronization server for PortableCloud.",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5",
+    "angular-translate": "~2.4.0",
+    "angular-cookies": "~1.5",
+    "bootstrap": "~3.3.2",
+    "jquery": "~2.1.3",
+    "bootswatch": "~3.3.5",
+    "angular-ui-notification": "~0.1.0",
+    "angular-material": "~1.0.1"
+  },
+  "resolutions": {
+    "angular": "~1.5"
+  }
+}

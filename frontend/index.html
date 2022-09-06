@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>PortableCloud File Explorer</title>
+    <script src="build/bower_components/angular/angular.js"></script>
+    <script src="build/bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="build/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="build/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="build/bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="vendor/angular/angular-translate-loader.min.js"></script>
+    <script src="vendor/angular/angular-dirPagination.js"></script>
+    <script src="build/bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="build/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="build/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="build/bower_components/angular-ui-notification/dist/angular-ui-notification.min.js"></script>
+
+    <link rel="stylesheet" href="build/bower_components/angular-ui-notification/dist/angular-ui-notification.min.css">
+    <link rel="stylesheet" href="build/bower_components/bootswatch/paper/bootstrap.min.css"/>
+    <link rel="stylesheet" href="build/bower_components/angular-material/angular-material.min.css"/>
+
+    <script src="src/js/app.js"></script>
+    <script src="src/js/directives/directives.js"></script>
+    <script src="src/js/directives/PCSyncStatus.js"></script>
+    <script src="src/js/filters/filters.js"></script>
+    <script src="src/js/models/folder.js"></script>
+    <script src="src/js/providers/config.js"></script>
+    <script src="src/js/entities/chmod.js"></script>
+    <script src="src/js/entities/item.js"></script>
+    <script src="src/js/services/PCAuthentication.js"></script>
+    <script src="src/js/services/PCEventService.js"></script>
+    <script src="src/js/services/PCExplorer.js"></script>
+    <script src="src/js/services/PCFolderService.js"></script>
+    <script src="src/js/services/PCUserService.js"></script>
+    <script src="src/js/services/PCViewService.js"></script>
+    <script src="src/js/services/PCSyncService.js"></script>
+    <script src="src/js/services/FileNavigator.js"></script>
+    <script src="src/js/services/FileUploader.js"></script>
+    <script src="src/js/services/HTTPInterceptor.js"></script>
+    <script src="src/js/providers/translations.js"></script>
+    <script src="src/js/controllers/main.js"></script>
+    <script src="src/js/controllers/PCDevices.js"></script>
+    <script src="src/js/controllers/PCFolderSyncSettings.js"></script>
+    <script src="src/js/controllers/selector-controller.js"></script>
+    <script src="src/js/controllers/PCAccountController.js"></script>
+    <script src="src/js/controllers/PCSettingsController.js"></script>
+    <script src="src/js/controllers/PCServerModalsController.js"></script>
+    <link href="src/css/animations.css" rel="stylesheet">
+    <link href="src/css/dialogs.css" rel="stylesheet">
+    <link href="src/css/main.css" rel="stylesheet">
+    <link href="src/css/overrides.css" rel="stylesheet">
+    <link href="src/css/server.css" rel="stylesheet">
+
+    <script type="text/javascript">
+        angular.element(document).ready(function () {
+            angular.bootstrap(angular.element(document), ['PCloudSyncServer']);
+        });
+    </script>
+</head>
+
+<body>
+<pcloud-sync></pcloud-sync>
+</div>
+</body>
+</html>

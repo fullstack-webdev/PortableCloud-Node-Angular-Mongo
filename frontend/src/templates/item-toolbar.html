@@ -1,0 +1,39 @@
+<div ng-show="!item.inprocess">
+    {{ folder=getFolderByItem(item); '' }}
+                <span ng-show="admin && config.allowedActions.sync && onTopLevel() && (item.model.type === 'syncgroup')" pc-sync-status folder="folder"><button
+                        class="btn btn-sm"
+                        ng-click="touch(item); showSyncSettings(item)"
+                        title="{{'sync' | translate}}">
+                    <md-icon class="md-icon-small md-light gly-spin-sync-status"><i class="material-icons">&#xE627;</i></md-icon>
+                </button></span>
+    <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#rename" ng-show="admin && config.allowedActions.rename" ng-click="touch(item)" title="{{'rename' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE254;</i></md-icon>
+    </button>
+    <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#copy" ng-show="admin && config.allowedActions.copy && !item.isFolder()" ng-click="touch(item)" title="{{'copy' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE14D;</i></md-icon>
+    </button>
+    <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#edit" ng-show="admin && config.allowedActions.edit && item.isEditable()" ng-click="item.getContent(); touch(item)" title="{{'edit' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE254;</i></md-icon>
+    </button>
+    <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#changepermissions" ng-show="admin && config.allowedActions.changePermissions" ng-click="touch(item)" title="{{'permissions' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE897;</i></md-icon>
+    </button>
+    <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#compress" ng-show="admin && config.allowedActions.compress && item.isCompressible()" ng-click="touch(item)" title="{{'compress' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE53B;</i></md-icon>
+    </button>
+    <button class="btn btn-sm btn-default" data-toggle="modal" data-target="#extract" ng-show="admin && config.allowedActions.extract && item.isExtractable()" ng-click="touch(item); item.tempModel.name=''" title="{{'extract' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE56B;</i></md-icon>
+    </button>
+    <button class="btn btn-sm btn-default" ng-show="config.allowedActions.download && !item.isFolder()" ng-click="item.download()" title="{{'download' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE2C4;</i></md-icon>
+    </button>
+    <button class="btn btn-sm btn-default" ng-show="config.allowedActions.preview && item.isImage()" ng-click="openImagePreview(item)" title="{{'view_item' | translate}}">
+        <md-icon class="md-icon-small"><i class="material-icons">&#xE410;</i></md-icon>
+    </button>
+    <button class="btn btn-sm btn-danger" data-target="#delete" ng-show="admin && config.allowedActions.remove" ng-click="touch(item); showModal('delete')" title="{{'remove' | translate}}">
+        <md-icon class="md-icon-small md-light"><i class="material-icons">&#xE872;</i></md-icon>
+    </button
+</div>
+<div ng-show="item.inprocess">
+    <button class="btn btn-sm" style="visibility: hidden">&nbsp;</button><span class="label label-warning">{{"wait" | translate}} ...</span>
+</div>

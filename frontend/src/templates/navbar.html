@@ -1,0 +1,63 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class='pcloud-logo' src="assets/img/portablecloud_horizontal_light_small.png"
+                 class="portablecloud-logo">
+            <a class="navbar-brand hidden-xs" href="" ng-click="FileNavigator.goTo(-1)"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <div class="navbar-form navbar-right">
+                <input type="text" class="form-control input-sm hide" placeholder="{{'search' | translate}}..."
+                       ng-model="$parent.query">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-show="!authenticated">
+                        <a md-button class="light no-margin" href="#" data-toggle="modal" data-target="#login"
+                           ng-click="touch()"><span><md-icon>
+                            <i class="material-icons md-light">&#xE0DA;</i></md-icon> {{'login' | translate}}</span></a>
+                    </li>
+                    <li ng-show="!authenticated">
+                        <a md-button class='light no-margin' href="#" data-toggle="modal" data-target="#pc-register"
+                           ng-click="touch()"><span><md-icon>
+                            <i class="material-icons md-light">&#xE85E;</i></md-icon> {{'Register' | translate}}</span></a>
+                    </li>
+                    <li class="dropdown" ng-show="authenticated">
+                        <a href="#" class="dropdown-toggle tall-text" data-toggle="dropdown"><span><md-icon><i
+                                class="material-icons md-light">&#xE853;</i></md-icon> {{username}}</span> <span
+                                class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="divider visible-xs"></li>
+                        <li ng-show="authenticated"><a href='#/files/' ng-click="FileNavigator.goTo('/')"
+                                                       ng-class="(mainView === 'files') ? 'selected' : ''">
+                                <span><md-icon><i class="material-icons">&#xE617;</i>
+                                </md-icon> <span translate>Files</span></span></a></li>
+                        <li ng-show="authenticated"><a href='#/devices'
+                                                       ng-class="(mainView === 'devices') ? 'selected' : ''"
+                                                       ng-if="admin">
+                                <span><md-icon><i class="material-icons">&#xE028;</i>
+                                </md-icon> <span translate>Devices</span></span></a></li>
+                        <li ng-show="authenticated" class="divider"></li>
+                        <li ng-show="authenticated"><a href='#/account/'
+                                                       ng-class="(mainView === 'account') ? 'selected' : ''"
+                                                       ng-if="admin">
+                                <span><md-icon><i class="material-icons">&#xE8B9;</i>
+                                </md-icon> <span translate>Account Settings</span></span></a></li>
+                        <li ng-show="authenticated" class="divider"></li>
+                        <li ng-show="authenticated"><a href="" ng-click="logout()"><span><md-icon><i
+                                class="material-icons">&#xE8AC;</i>
+                        </md-icon>
+                                <span translate>{{'logout' | translate}}</span></span></a>
+                        </li>
+                    </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

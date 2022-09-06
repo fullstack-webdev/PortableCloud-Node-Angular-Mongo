@@ -1,0 +1,15 @@
+{
+    "_id": "_design/deviceSession",
+    "language": "javascript",
+    "views": {
+        "by_session": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'deviceSession') {\n\t\temit(d.session, d);\n\t}\n\t\n}"
+        },
+        "by_device_name": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'deviceSession') {\n\t\temit(d.device_name, d);\n\t}\n\t\n}"
+        },
+        "by_syncthing_id": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'deviceSession') {\n\t\temit(d.syncthingId, d);\n\t}\n\t\n}"
+        }
+    }
+}

@@ -1,0 +1,148 @@
+<!-- Device list (top right) -->
+
+<!-- This device -->
+<h4 class="margin-left margin-top">Devices</h4>
+<md-divider class="margin-left"></md-divider>
+<div id="deviceView" class="container margin-top" ng-controller="PCDevicesController" style="width: 100%">
+<div class="row">
+<div class="col-md-7">
+<!-- Remote devices -->
+<div class="panel-group padding" id="devices">
+    <h4>
+        <div class="form-group pull-right">
+            <button type="button" class="btn btn-default pull-right" ng-click="addDevice()">
+                <md-icon class="smaller"><i class="material-icons">&#xE02E;</i></md-icon>&nbsp;<span translate>Add Device</span>
+            </button>
+        </div>
+        <div class="clearfix"></div>
+        <span translate></span>
+    </h4>
+    <p></p>
+
+    <div class="panel panel-default" ng-repeat="deviceCfg in otherDevices()">
+        <div ng-switch="deviceName(deviceCfg).toLowerCase()">
+
+            <div ng-switch-default class="panel-heading" data-toggle="collapse" data-parent="#devices"
+                 href="#device-{{$index}}"
+                 style="cursor: pointer">
+                <div class="panel-progress" ng-show="deviceStatus(deviceCfg) == 'syncing'"
+                     ng-attr-style="width: {{completion[deviceCfg.deviceID]._total | number:0}}%"></div>
+                <img class="pcloud-icon"
+                     src="./assets/img/portablecloud.png">
+
+                <div class="pull-right">
+                    <div ng-switch="deviceStatus(deviceCfg)" class="text-{{deviceClass(deviceCfg)}} align-right">
+                  <span ng-switch-when="insync"><span class="hidden-xs" translate>Up to Date</span><span
+                          class="visible-xs">&#9724;</span></span>
+                  <span ng-switch-when="syncing">
+                    <span class="hidden-xs" translate>Syncing</span> ({{completion[deviceCfg.deviceID]._total | number:0}}%)
+                  </span>
+                    <span ng-switch-when="paused"><span class="hidden-xs" translate>Paused</span><span
+                            class="visible-xs">&#9724;</span></span>
+                  <span ng-switch-when="disconnected"><span class="hidden-xs" translate>Disconnected</span><span
+                          class="visible-xs">&#9724;</span></span>
+                    <span ng-switch-when="unused"><span class="hidden-xs" translate>Unused</span><span
+                            class="visible-xs">&#9724;</span></span>
+                    </div>
+
+                    <div ng-show="connections[deviceCfg.deviceID].connected">
+                        <span class="text-success">
+                        <md-tooltip md-direction="bottom">
+                            Download Rate
+                        </md-tooltip>
+                        <md-icon>
+                            <i class="material-icons text-success">&#xE2C0;</i>
+                        </md-icon>
+                        {{connections[deviceCfg.deviceID].inbps | binary}}kb/s
+                            </span><span class="text-danger">
+                        <md-tooltip md-direction="bottom">
+                            Upload Rate
+                        </md-tooltip>
+                        <md-icon>
+                            <i class="material-icons text-danger">&#xE2C3;</i>
+                        </md-icon>
+                        {{connections[deviceCfg.deviceID].outbps | binary}}kb/s</span>
+                    </div>
+                </div>
+                <h3 class="panel-title device-text">
+                    {{deviceName(deviceCfg)}}
+                </h3>
+            </div>
+
+            <div id="device-{{$index}}" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table class="table table-condensed table-striped">
+                        <tbody>
+                        <tr ng-if="deviceCfg.deviceID">
+                            <th><span class="fa fa-fw fa-cloud-download"></span>&nbsp;<span
+                                    translate>Device ID</span></th>
+                            <td class="selectable text-right">{{deviceCfg.deviceID}}
+                            </td>
+                        </tr>
+                        <tr ng-if="false">
+                            <th>
+                                <span class="fa fa-fw fa-link"></span>
+                                <span translate ng-if="connections[deviceCfg.deviceID].type.indexOf('direct') == 0">Address</span>
+                                <span translate ng-if="connections[deviceCfg.deviceID].type.indexOf('relay') == 0">Relayed via</span>
+                            </th>
+                            <td class="selectable text-right">{{deviceAddr(deviceCfg)}}</td>
+                        </tr>
+                        <tr ng-if="deviceCfg.compression != 'metadata'">
+                            <th><span class="fa fa-fw fa-compress"></span>&nbsp;<span translate>Compression</span>
+                            </th>
+                            <td class="selectable text-right">
+                                <span ng-if="deviceCfg.compression == 'always'" translate>All Data</span>
+                                <span ng-if="deviceCfg.compression == 'never'" translate>Off</span>
+                            </td>
+                        </tr>
+                        <tr ng-if="deviceCfg.introducer">
+                            <th><span class="fa fa-fw fa-thumbs-o-up"></span>&nbsp;<span translate>Introducer</span>
+                            </th>
+                            <td translate class="selectable text-right">Yes</td>
+                        </tr>
+                        <tr ng-if="false && connections[deviceCfg.deviceID].clientVersion">
+                            <th><span class="fa fa-fw fa-tag"></span>&nbsp;<span translate>Syncthing Version</span></th>
+                            <td class="selectable text-right">{{connections[deviceCfg.deviceID].clientVersion}}</td>
+                        </tr>
+                        <tr ng-if="!connections[deviceCfg.deviceID].connected">
+                            <th><span class="fa fa-fw fa-eye"></span>&nbsp;<span translate>Last seen</span></th>
+                            <td translate
+                                ng-if="!deviceStats[deviceCfg.deviceID].lastSeenDays || deviceStats[deviceCfg.deviceID].lastSeenDays >= 365"
+                                class="selectable text-right">Never
+                            </td>
+                            <td ng-if="deviceStats[deviceCfg.deviceID].lastSeenDays < 365" class="selectable text-right">
+                                {{deviceStats[deviceCfg.deviceID].lastSeen | date:"yyyy-MM-dd HH:mm:ss"}}
+                            </td>
+                        </tr>
+                        <tr ng-if="deviceFolders(deviceCfg).length > 0">
+                            <th><span class="fa fa-fw fa-folder"></span>&nbsp;<span translate>Folders</span></th>
+                            <td class="selectable text-right">{{deviceFolders(deviceCfg).join(", ")}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-sm btn-danger" ng-click="removeDevice(deviceCfg)">
+                        <span class="fa fa-pencil"></span>&nbsp;<span translate>Remove</span>
+                    </button>
+                <span class="pull-right">
+                  <button ng-disabled='true' ng-if="!connections[deviceCfg.deviceID].paused" type="button" class="btn btn-sm btn-default"
+                          ng-click="pauseDevice(deviceCfg.deviceID)">
+                      <span class="fa fa-pause"></span>&nbsp;<span translate>Pause</span>
+                  </button>
+                  <button  ng-disabled='true' ng-if="connections[deviceCfg.deviceID].paused" type="button" class="btn btn-sm btn-default"
+                          ng-click="resumeDevice(deviceCfg.deviceID)">
+                      <span class="fa fa-play"></span>&nbsp;<span translate>Resume</span>
+                  </button>
+                </span>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+

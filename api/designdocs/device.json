@@ -1,0 +1,15 @@
+{
+    "_id": "_design/device",
+    "language": "javascript",
+    "views": {
+        "by_id": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'device') {\n\t\temit(d._id, d);\n\t}\n\t\n}"
+        },
+        "by_syncid": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'device') {\n\t\temit(d.syncthingId, d);\n\t}\n\t\n}"
+        },
+        "by_user": {
+            "map": "function(d){\nif (d.authorizedUsers) {\n\tfor (var i in d.authorizedUsers) {\n\t\temit(d.authorizedUsers[i], d);\n\t}\n}}"
+        }
+    }
+}

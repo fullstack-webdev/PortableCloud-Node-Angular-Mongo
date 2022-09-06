@@ -1,0 +1,37 @@
+<script type="text/ng-template" id="error-bar">
+    <div ng-show="temp.error" class="bs-callout bs-callout-danger">
+        <h4>Error</h4>
+
+        <p>{{temp.error}}</p></div>
+</script>
+<div ng-controller="FileManagerCtrl" ng-init="init()">
+    <div ng-include="config.tplPath + '/navbar.html'"></div>
+    <div ng-switch="mainView">
+        <div ng-switch-when="splash">
+            <div class="" ng-include="config.tplPath + '/' + viewTemplates.splash"></div>
+        </div>
+        <div ng-switch-default>
+            <div class="col-sm-3 col-md-3 sidebar file-tree animated slow fadeIn"
+                 ng-include="config.tplPath + '/sidebar.html'"
+                 ng-show="config.sidebar"></div>
+            <div class="main"
+                 ng-class="config.sidebar && 'col-sm-9 col-md-9 col-md-offset-3 col-sm-offset-3'">
+                <div ng-show="mainView === 'files'">
+                    <div ng-include="config.tplPath + '/' + viewTemplates.files"></div>
+                </div>
+                <div ng-show="mainView === 'devices'">
+                    <div ng-include="config.tplPath + '/' + viewTemplates.devices"></div>
+                </div>
+                <div ng-show="mainView === 'account'">
+                    <div ng-include="config.tplPath + '/' + viewTemplates.account"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-include="config.tplPath + '/modals.html'"></div>
+    <div ng-include="config.tplPath + '/serverModals.html'"></div>
+    <div ng-include="config.tplPath + '/syncSettingsModal.html'" ng-if="currentModal === 'syncSettings'"></div>
+    <div ng-include="config.tplPath + '/item-context-menu.html'"></div>
+
+</div>

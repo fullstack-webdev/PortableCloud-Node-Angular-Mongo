@@ -1,0 +1,77 @@
+<div id="context-menu" class="dropdown clearfix animated fast fadeIn">
+    <ul class="dropdown-menu dropdown-right-click" role="menu" aria-labelledby="dropdownMenu" style="">
+        
+        <li ng-show="temp.isFolder()">
+            <a href="" tabindex="-1" ng-click="smartClick(temp)">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE2C8;</i></md-icon> {{'open' | translate}}
+            </a>
+        </li>
+
+        <li class="divider"></li>
+
+        <li ng-show="temp.isSyncGroup()">
+            <a href="" tabindex="-1" ng-click="touch(temp); showSyncSettings(temp)">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE627;</i></md-icon> {{'Sync Settings' | translate}}
+            </a>
+        </li>
+
+        <li ng-show="config.allowedActions.download && !temp.isFolder()">
+            <a href="" tabindex="-1" ng-click="temp.download()">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE2C4;</i></md-icon> {{'download' | translate}}
+            </a>
+        </li>
+
+        <li ng-show="config.allowedActions.preview && temp.isImage()">
+            <a href="" tabindex="-1" ng-click="openImagePreview(temp)">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE410;</i></md-icon> {{'view_item' | translate}}
+            </a>
+        </li>
+
+        <li class="divider"></li>
+
+        <li ng-show="config.allowedActions.rename">
+            <a href="" tabindex="-1" data-toggle="modal" data-target="#rename">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE22B;</i></md-icon> {{'rename' | translate}}
+            </a>
+        </li>
+
+        <li ng-show="config.allowedActions.copy && !temp.isFolder()">
+            <a href="" tabindex="-1" data-toggle="modal" data-target="#copy">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE14D;</i></md-icon> {{'copy' | translate}}
+            </a>
+        </li>
+
+        <li ng-show="config.allowedActions.edit && temp.isEditable()">
+            <a href="" tabindex="-1" data-toggle="modal" data-target="#edit" ng-click="temp.getContent();">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE254;</i></md-icon> {{'edit' | translate}}
+            </a>
+        </li>
+
+        <li ng-show="config.allowedActions.changePermissions">
+            <a href="" tabindex="-1" data-toggle="modal" data-target="#changepermissions">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE897;</i></md-icon> {{'permissions' | translate}}
+            </a>
+        </li>
+
+        <li ng-show="config.allowedActions.compress && temp.isCompressible()">
+            <a href="" tabindex="-1" data-toggle="modal" data-target="#compress">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE53B;</i></md-icon> {{'compress' | translate}}
+            </a>
+        </li>
+
+        <li ng-show="config.allowedActions.extract && temp.isExtractable()">
+            <a href="" tabindex="-1" data-toggle="modal" data-target="#extract" ng-click="temp.tempModel.name=''">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE56B;</i></md-icon> {{'extract' | translate}}
+            </a>
+        </li>
+
+        <li class="divider"></li>
+        
+        <li ng-show="config.allowedActions.remove">
+            <a href="" tabindex="-1" data-toggle="modal" data-target="#delete">
+                <md-icon class="md-icon-small"><i class="material-icons">&#xE872;</i></md-icon> {{'remove' | translate}}
+            </a>
+        </li>
+
+    </ul>
+</div>

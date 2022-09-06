@@ -1,0 +1,13 @@
+{
+    "_id": "_design/session",
+    "_rev": "3-47cb56f4c561c10fd74c255e6210e178",
+    "language": "javascript",
+    "views": {
+        "by_session": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'session') {\n\t\temit(d.session, d);\n\t}\n\t\n}"
+        },
+        "by_device_name": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'session') {\n\t\temit(d.device_name, d);\n\t}\n\t\n}"
+        }
+    }
+}

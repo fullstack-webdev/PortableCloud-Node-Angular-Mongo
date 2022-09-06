@@ -1,0 +1,38 @@
+<a href='#/files/' ng-click="FileNavigator.folderClick()" class="btn btn-default btn-sidebar"
+   ng-class="(mainView === 'files') ? 'selected' : ''">
+    <md-icon><i class="material-icons">&#xE617;</i></md-icon>
+    Files</a>
+<ul class="nav nav-sidebar file-tree-root" ng-class="(mainView !== 'files') ? 'sidebar-collapsed' : ''">
+    <li>
+        <ul class="nav nav-sidebar">
+            <li ng-repeat="item in FileNavigator.history[0].nodes" ng-include="'folder-branch-item'"
+                ng-class="{'active': item.name == FileNavigator.currentPath.join('/')}"></li>
+        </ul>
+    </li>
+</ul>
+<a href="#/devices" class="btn btn-default btn-sidebar" ng-class="(mainView === 'devices') ? 'selected' : ''"
+   ng-if="admin">
+    <md-icon>
+        <i class="material-icons">&#xE028;</i>
+    </md-icon>
+    Devices</a>
+<script type="text/ng-template" id="folder-branch-item">
+    {{ syncgroup = item.item.isSyncGroup(); '' }}
+    <a href="" ng-click="FileNavigator.folderClick(item.item)" class="animated fast fadeInDown">
+        <span ng-switch="syncgroup">
+            <span ng-switch-when="true" ng-switch="isInThisPath(item.name)" ng-cloak>
+                <img ng-switch-when="true" class="folder-icon" ng-src="{{config.path.images}}cloudFolder_small.png">
+                <img ng-switch-default class="folder-icon" ng-src="{{config.path.images}}cloudFolder_small_closed.png">
+            </span>
+            <span ng-switch-when="false" ng-switch="isInThisPath(item.name)" ng-cloak>
+                <md-icon ng-switch-when="true" class="md-icon-small"><i class="material-icons">&#xE2C8;</i></md-icon>
+                <md-icon ng-switch-default class="md-icon-small"><i class="material-icons">&#xE2C7;</i></md-icon>
+            </span>
+        </span>
+        {{ (item.displayName.split('/').pop() || '/') | strLimit : 24 }}
+    </a>
+    <ul class="nav nav-sidebar">
+        <li ng-repeat="item in item.nodes" ng-include="'folder-branch-item'"
+            ng-class="{'active': item.name == FileNavigator.currentPath.join('/')}"></li>
+    </ul>
+</script>

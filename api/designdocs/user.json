@@ -1,0 +1,12 @@
+{
+    "_id": "_design/user",
+    "language": "javascript",
+    "views": {
+        "by_username": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'user') {\n\t\temit(d.username, d);\n\t}\n\t\n}"
+        },
+        "by_email": {
+            "map": "function(d) {\n\n\tif(d.doctype === 'user') {\n\t\temit(d.email, d);\n\t}\n\t\n}"
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<table class="table table-condensed table-modal-condensed mb0">
+    <thead>
+        <tr>
+            <th>
+                <a href="" ng-click="order('model.name')">
+                    {{"name" | translate}}
+                    <span class="sortorder" ng-show="predicate[1] === 'model.name'" ng-class="{reverse:reverse}"></span>
+                </a>
+            </th>
+            <td class="text-right" ng-hide="FileNavigator.onTopLevel() || (!FileNavigator.requesting && !FileNavigator.listHasFolders() && !FileNavigator.error)">
+                <button class="btn btn-sm btn-default" ng-click="FileNavigator.upDir()">{{"go_back" | translate}}</button>
+            </td>
+            <th class="text-right"></th>
+        </tr>
+    </thead>
+    <tbody class="file-item">
+        <tr ng-show="FileNavigator.requesting">
+            <td colspan="2">
+                <div ng-include="config.tplPath + '/spinner.html'"></div>
+            </td>
+        </tr>
+        <tr ng-show="!FileNavigator.requesting && !FileNavigator.listHasFolders() && !FileNavigator.error">
+            <td colspan="2">
+                {{"no_folders_in_folder" | translate}}...
+            </td>
+            <td class="text-right">
+                <button class="btn btn-sm btn-default" ng-click="FileNavigator.upDir()">{{"go_back" | translate}}</button>
+            </td>
+        </tr>
+        <tr ng-show="!FileNavigator.requesting && FileNavigator.error">
+            <td colspan="2">
+                {{ FileNavigator.error }}
+            </td>
+        </tr>
+        <tr ng-repeat="item in FileNavigator.fileList | orderBy:predicate:reverse" ng-show="!FileNavigator.requesting && item.isFolder()">
+            <td>
+                <a href="" ng-click="FileNavigator.folderClick(item)" title="{{item.model.name}} ({{item.model.sizeKb()}}kb)">
+                    <md-icon class="md-icon-small"><i class="material-icons">&#xE2C7;</i></md-icon>
+                    {{item.model.name | strLimit : 32}}
+                </a>
+            </td>
+            <td class="text-right">
+                <button class="btn btn-sm btn-default" ng-click="select(item, temp)">
+                    <md-icon class="md-icon-small"><i class="material-icons">&#xE913;</i></md-icon> {{"select_this" | translate}}
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
